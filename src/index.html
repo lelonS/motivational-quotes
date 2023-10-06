@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Motivational Quote</title>
+</head>
+
+<body>
+  <div id="quote">Trying is the first step to failure</div>
+
+  <script>
+    const quotes = ['Trying is the first step to failure', 'It will probably get worse', 'People change. Now, I\'m a lamp', 'Life is like a camera - focus on the negatives, because that\'s all you\'ll ever develop', 'You tried your best, and you failed miserably. The lesson is, never try'];
+    let currentQuoteIndex = 0;
+    const quoteDiv = document.getElementById('quote');
+    newQuote();
+
+    function setRandomFont() {
+      const fonts = ['Helvetica', 'Arial', 'Arial Black', 'Verdana', 'Tahoma', 'Trebuchet MS', 'Impact', 'Gill Sans', 'Times New Roman', 'Georgia', 'Palatino', 'Baskerville', 'Andalé Mono', 'Courier', 'Lucida', 'Monaco', 'Bradley Hand', 'Brush Script MT', 'Luminari', 'Comic Sans MS'];
+      const randomFontIndex = Math.floor(Math.random() * fonts.length);
+      console.log(fonts[randomFontIndex]);
+      quoteDiv.style.fontFamily = fonts[randomFontIndex];
+    }
+
+    function newQuote() {
+      currentQuoteIndex = Math.floor(Math.random() * quotes.length);
+      setRandomFont();
+      quoteDiv.innerHTML = quotes[currentQuoteIndex];
+    }
+
+    // Listen for clicks or touches or spacebar
+    document.addEventListener('click', newQuote);
+    document.addEventListener('keydown', (event) => {
+      if (event.keyCode === 32) {
+        newQuote();
+      }
+    });
+  </script>
+</body>
+
+</html>
